@@ -47,10 +47,11 @@ module.exports = {
     app: entry,
   },
   output: {
-    path: dist,
+    path: path.resolve(__dirname, '../dist'),
     filename: 'assets/js/[name].[fullhash:8].js',
     chunkFilename: 'assets/js/[name].[fullhash:8].chunk.js',
-    publicPath: publicUrlOrPath,
+    publicPath: './',
+    // publicPath: publicUrlOrPath,
     clean: true,
     assetModuleFilename: (module) => {
       let { filename } = module;
@@ -172,19 +173,19 @@ module.exports = {
       template: `${src}/index.html`,
       ...(isProduction
         ? {
-            minify: {
-              removeComments: true,
-              collapseWhitespace: true,
-              removeRedundantAttributes: true,
-              useShortDoctype: true,
-              removeEmptyAttributes: true,
-              removeStyleLinkTypeAttributes: true,
-              keepClosingSlash: true,
-              minifyJS: true,
-              minifyCSS: true,
-              minifyURLs: true,
-            },
-          }
+          minify: {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            keepClosingSlash: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true,
+          },
+        }
         : undefined),
     }),
     new ForkTsCheckerWebpackPlugin({
