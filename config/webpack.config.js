@@ -47,7 +47,7 @@ module.exports = {
     app: entry,
   },
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../docs'),
     filename: 'assets/js/[name].[fullhash:8].js',
     chunkFilename: 'assets/js/[name].[fullhash:8].chunk.js',
     publicPath: './',
